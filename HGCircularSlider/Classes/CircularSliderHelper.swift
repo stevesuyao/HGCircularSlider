@@ -103,6 +103,9 @@ internal class CircularSliderHelper {
     @nonobjc static let circleMinValue: CGFloat = 0
     @nonobjc static let circleMaxValue: CGFloat = CGFloat(2 * Double.pi)
     @nonobjc static let circleInitialAngle: CGFloat = -CGFloat(Double.pi / 2)
+    @nonobjc static let pi: CGFloat = CGFloat(Double.pi)
+    
+    static var circleTotalAngle: CGFloat = circleMaxValue
     
     /**
      Convert angle from radians to degrees
@@ -207,7 +210,7 @@ internal class CircularSliderHelper {
      - returns: the angle value
      */
     internal static func scaleToAngle(value aValue: CGFloat, inInterval oldInterval: Interval) -> CGFloat {
-        let angleInterval = Interval(min: circleMinValue , max: circleMaxValue)
+        let angleInterval = Interval(min: circleMinValue , max: circleTotalAngle)
         
         let angle = scaleValue(aValue, fromInterval: oldInterval, toInterval: angleInterval)
         return  angle
@@ -223,17 +226,17 @@ internal class CircularSliderHelper {
      - parameter newInterval: the new interval
      - parameter angle:       the angle value
      
-     - returns: the value in the new interval 
+     - returns: the value in the new interval
      */
     internal static func value(inInterval newInterval: Interval, fromAngle angle: CGFloat) -> CGFloat {
-        let angleIntreval = Interval(min: circleMinValue , max: circleMaxValue)
+        let angleIntreval = Interval(min: circleMinValue , max: circleTotalAngle)
         let value = scaleValue(angle, fromInterval: angleIntreval, toInterval: newInterval)
         
         return value
     }
     
     internal static func delta(in interval: Interval, for angle: CGFloat, oldValue: CGFloat) -> CGFloat {
-        let angleIntreval = Interval(min: circleMinValue , max: circleMaxValue)
+        let angleIntreval = Interval(min: circleMinValue , max: circleTotalAngle)
         
         let oldAngle = scaleToAngle(value: oldValue, inInterval: interval)
         let deltaAngle = self.angle(from: oldAngle, to: angle)
@@ -246,13 +249,13 @@ internal class CircularSliderHelper {
      * It will be in range [-π/2, π/2], where sign means dir (+ for clockwise, - for counter clockwise).
      */
     private static  func angle(from alpha: CGFloat, to beta: CGFloat) -> CGFloat {
-        let halfValue = circleMaxValue/2
+        let halfValue = circleTotalAngle/2
         // Rotate right
-        let offset = alpha >= halfValue ? circleMaxValue - alpha : -alpha
+        let offset = alpha >= halfValue ? circleTotalAngle - alpha : -alpha
         let offsetBeta = beta + offset
         
         if offsetBeta > halfValue {
-            return offsetBeta - circleMaxValue
+            return offsetBeta - circleTotalAngle
         }
         else {
             return offsetBeta
