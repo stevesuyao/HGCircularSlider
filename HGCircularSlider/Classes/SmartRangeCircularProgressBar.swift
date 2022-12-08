@@ -418,19 +418,19 @@ open class SmartRangeCircularProgressBar: UIControl {
         
         let startAngle = fillTrackStartingFactor * CircularSliderHelper.pi
         
-        drawFilledArc(fromAngle: startAngle, toAngle: endAngle, inContext: context)
         
         let endAngle2 = CircularSliderHelper.scaleToAngle(value: endPointValue2, inInterval: valuesInterval) + fillTrackStartingFactor * CircularSliderHelper.pi
         
-        if (enableThridTrack && endPointValue > endPointValue2) {
-            let circleEndAngle = sliderEndAngleFactor * CircularSliderHelper.pi
-            drawThirdFilledArc(fromAngle: endAngle2, toAngle: circleEndAngle, fillColor: thirdTrackFillColor, inContext: context)
+        
+        drawFilledArc(fromAngle: startAngle, toAngle: endAngle, inContext: context)
+        
+        if (enableThridTrack) {
+            // let circleEndAngle = sliderEndAngleFactor * CircularSliderHelper.pi
+            drawThirdFilledArc(fromAngle: startAngle, toAngle: endAngle2, fillColor: thirdTrackFillColor, inContext: context)
         }
-        
-        drawSecondFilledArc(fromAngle: startAngle, toAngle: endAngle2, fillColor: secondTrackFillColor, inContext: context)
-        
 
-        
+        drawSecondFilledArc(fromAngle: startAngle, toAngle: endAngle2, fillColor: secondTrackFillColor, inContext: context)
+
         // draw end thumb
         endThumbTintColor.setFill()
         (isHighlighted == true) ? endThumbStrokeHighlightedColor.setStroke() : endThumbStrokeColor.setStroke()
