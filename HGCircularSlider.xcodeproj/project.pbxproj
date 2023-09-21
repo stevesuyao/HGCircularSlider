@@ -19,6 +19,7 @@
 		CCDBFE001E4336C9005D6F08 /* CircularSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDBFDFA1E4336C9005D6F08 /* CircularSlider.swift */; };
 		CCDBFE011E4336C9005D6F08 /* CircularSliderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDBFDFB1E4336C9005D6F08 /* CircularSliderHelper.swift */; };
 		CCDBFE021E4336C9005D6F08 /* RangeCircularSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDBFDFC1E4336C9005D6F08 /* RangeCircularSlider.swift */; };
+		E806C9CA2ABA9F2800A6B427 /* SmartRangeElectricProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E806C9C92ABA9F2800A6B427 /* SmartRangeElectricProgressBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		CCDBFDFA1E4336C9005D6F08 /* CircularSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularSlider.swift; sourceTree = "<group>"; };
 		CCDBFDFB1E4336C9005D6F08 /* CircularSliderHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularSliderHelper.swift; sourceTree = "<group>"; };
 		CCDBFDFC1E4336C9005D6F08 /* RangeCircularSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeCircularSlider.swift; sourceTree = "<group>"; };
+		E806C9C92ABA9F2800A6B427 /* SmartRangeElectricProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartRangeElectricProgressBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				CCCC96451E9F7FD000999D34 /* MidPointCircularSlider.swift */,
 				CCDBFDFC1E4336C9005D6F08 /* RangeCircularSlider.swift */,
 				9CED40E12939732C00D2215F /* SmartRangeCircularProgressBar.swift */,
+				E806C9C92ABA9F2800A6B427 /* SmartRangeElectricProgressBar.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				CCDBFDFF1E4336C9005D6F08 /* CircularSlider+Draw.swift in Sources */,
 				9CED40E22939732C00D2215F /* SmartRangeCircularProgressBar.swift in Sources */,
 				CCDBFE021E4336C9005D6F08 /* RangeCircularSlider.swift in Sources */,
+				E806C9CA2ABA9F2800A6B427 /* SmartRangeElectricProgressBar.swift in Sources */,
 				CCDBFE001E4336C9005D6F08 /* CircularSlider.swift in Sources */,
 				CCCC96461E9F7FD000999D34 /* MidPointCircularSlider.swift in Sources */,
 				CCDBFE011E4336C9005D6F08 /* CircularSliderHelper.swift in Sources */,
