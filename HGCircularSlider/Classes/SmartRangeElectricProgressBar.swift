@@ -190,6 +190,23 @@ open class SmartRangeElectricProgressBar: UIControl {
      * The default value of this property is
      */
     @IBInspectable
+    open var sliderStartPowerAngleFactor: CGFloat = -1.25
+    
+    
+    /**
+     *
+     *
+     * The default value of this property is
+     */
+    @IBInspectable
+    open var sliderEndPowerAngleFactor: CGFloat = 1.25
+    
+    /**
+     *
+     *
+     * The default value of this property is
+     */
+    @IBInspectable
     open var fillTrackStartingFactor: CGFloat = -1.25
     
     /**
@@ -198,7 +215,7 @@ open class SmartRangeElectricProgressBar: UIControl {
      * The default value of this property is
      */
     @IBInspectable
-    open var fillTrackEndingFactor: CGFloat = 0.8
+    open var fillTrackEndingFactor: CGFloat = 0.25
 
     /**
      *
@@ -513,9 +530,10 @@ open class SmartRangeElectricProgressBar: UIControl {
         let endAngle3 = CircularSliderHelper.scaleToAngle(value: endPointValue + endPointValue2, inInterval: valuesInterval) + fillTrackStartingFactor * CircularSliderHelper.pi
          
         let endAngle4 = CircularSliderHelper.scaleToAngle(value: endPointValue, inInterval: valuesInterval) + fillTrackStartingFactor * CircularSliderHelper.pi
-        
+         
         // draw second
-        drawSecondFilledArc(fromAngle: startAngle, toAngle: fillTrackEndingFactor, fillColor: secondMainTrackFillColor, width: secondMainTracklineWidth, inContext: context)
+        drawSecondFilledArc(fromAngle: startAngle, toAngle: fillTrackEndingFactor * CircularSliderHelper.pi,
+                            fillColor: secondMainTrackFillColor, width: secondMainTracklineWidth, inContext: context)
         
         drawSecondFilledArc(fromAngle: startAngle, toAngle: endAngle3, fillColor: secondTrackPowerFillColor, width: secondTracklineWidth,
                             inContext: context)
