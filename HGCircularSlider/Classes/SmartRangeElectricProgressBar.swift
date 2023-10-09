@@ -526,6 +526,9 @@ open class SmartRangeElectricProgressBar: UIControl {
     func drawPowerLine(context: CGContext, valuesInterval: Interval) {
         let startAngle = fillTrackStartingFactor * CircularSliderHelper.pi
 
+        endPointValue = (endPointValue / 100) * 0.75
+        endPointValue2 = (endPointValue2 / 100) * 0.75
+        
         // get end angle from end value
         let endAngle3 = CircularSliderHelper.scaleToAngle(value: endPointValue + endPointValue2, inInterval: valuesInterval) + fillTrackStartingFactor * CircularSliderHelper.pi
          
