@@ -307,6 +307,24 @@ open class SmartRangeElectricProgressBar: UIControl {
             }
         }
     }
+    
+    /**
+     * The maximum value of the receiver.
+     *
+     * If you change the value of this property, and the end value of the receiver is above the new maximum, the end value is adjusted to match the new maximum value automatically.
+     * The default value of this property is 1.0.
+     */
+    @IBInspectable
+    open var maximumValuePower: CGFloat = 1.0 {
+        didSet {
+            if endPointValue > maximumValuePower {
+                endPointValue = maximumValuePower
+            }
+            if endPointValue2 > maximumValuePower {
+                endPointValue2 = maximumValuePower
+            }
+        }
+    }
 
     /**
     * The offset of the thumb centre from the circle.
@@ -371,8 +389,8 @@ open class SmartRangeElectricProgressBar: UIControl {
             if oldValue == endPointValue {
                 return
             }
-            if endPointValue > maximumValue {
-                endPointValue = maximumValue
+            if endPointValue > maximumValuePower {
+                endPointValue = maximumValuePower
             }
             if endPointValue < minimumValue {
                 endPointValue = minimumValue
@@ -391,8 +409,8 @@ open class SmartRangeElectricProgressBar: UIControl {
             if oldValue == endPointValue2 {
                 return
             }
-            if endPointValue2 > maximumValue {
-                endPointValue2 = maximumValue
+            if endPointValue2 > maximumValuePower {
+                endPointValue2 = maximumValuePower
             }
             if endPointValue2 < minimumValue {
                 endPointValue2 = minimumValue
@@ -499,11 +517,13 @@ open class SmartRangeElectricProgressBar: UIControl {
     override open func draw(_ rect: CGRect) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
         
-        let valuesInterval = Interval(min: minimumValue, max: maximumValue, rounds: numberOfRounds)
+        let valuesIntervalLine = Interval(min: minimumValue, max: maximumValue, rounds: numberOfRounds)
         
-        drawDistanceLine(context: context, valuesInterval: valuesInterval)
+        let valuesIntervalPower = Interval(min: minimumValue, max: maximumValuePower, rounds: numberOfRounds)
         
-        drawPowerLine(context: context, valuesInterval: valuesInterval)
+        drawDistanceLine(context: context, valuesInterval: valuesIntervalLine)
+        
+        drawPowerLine(context: context, valuesInterval: valuesIntervalPower)
     }
     
     func drawDistanceLine(context: CGContext, valuesInterval: Interval) {
