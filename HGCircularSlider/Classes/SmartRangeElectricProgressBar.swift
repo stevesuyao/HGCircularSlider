@@ -536,7 +536,7 @@ open class SmartRangeElectricProgressBar: UIControl {
         let endRemainingAngle = CircularSliderHelper.scaleToAngle(value: -remainingPointValue, inInterval: valuesInterval) + CircularSliderHelper.circleInitialAngle
         
         // get end angle from trip distance value
-        let endTripDistanceAngle = CircularSliderHelper.scaleToAngle(value: -tripDistancePointValue, inInterval: valuesInterval) + CircularSliderHelper.circleInitialAngle
+        let endTripDistanceAngle = tripDistancePointValue == 1 ? -8 : CircularSliderHelper.scaleToAngle(value: -tripDistancePointValue, inInterval: valuesInterval) + CircularSliderHelper.circleInitialAngle
          
         drawFilledArc(fromAngle: startAngle, toAngle: endTripDistanceAngle, inContext: context)
         
